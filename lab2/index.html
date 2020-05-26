@@ -18,6 +18,7 @@
             height: 100px;
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
@@ -26,160 +27,53 @@
             font-family: sans-serif;
             font-size: 15px;
             color: #fafafa;
-            animation: 3s ease-in-out infinite textZoomInOut;
+            animation: 0.8s ease-in-out infinite alternate textZoomInOut;
         }
 
         .loader_round {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
+            left: -10px;
+            top: -5px;
+            border-left: 10px solid transparent;
+	        border-right: 10px solid transparent;
+    	    border-bottom: 15px solid aquamarine;
             position: absolute;
-            background: #ccc;
+            animation: 2.4s ease-in-out infinite moveround;
         }
 
-        .round1 {
-            animation: 3s ease-in-out infinite moveround1;
+        .loader_round:nth-child(2){
+            animation-delay: 0.6s;
+        }
+        .loader_round:nth-child(3){
+            animation-delay: 1.2s;
+        }
+        .loader_round:nth-child(4){
+            animation-delay: 1.8s;
         }
 
-        .round2 {
-            animation: 3s ease-in-out infinite moveround2;
-        }
-
-        .round3 {
-            animation: 3s ease-in-out infinite moveround3;
-        }
-
-        .round4 {
-            animation: 3s ease-in-out infinite moveround4;
-        }
-
-        @keyframes moveround1 {
-            0% {
-                left: 0px;
-                top: 0px;
+        @keyframes moveround {
+            0%{
+                transform: translate(0,0);
             }
-
-            25% {
-                left: calc(100% - 5px);
-                top: 0px;
+            25%{
+                transform: translate(100px,0) rotate(45deg);
             }
-
-            50% {
-                left: calc(100% - 5px);
-                top: calc(100% - 5px);
+            50%{
+                transform: translate(100px,100px) rotate(90deg);
             }
-
-            75% {
-                left: 0px;
-                top: calc(100% - 5px);
+            75%{
+                transform: translate(0,100px) rotate(180deg);
             }
-
-            100% {
-                left: 0px;
-                top: 0px;
-            }
-        }
-
-        @keyframes moveround2 {
-            0% {
-                left: calc(100% - 5px);
-                top: 0px;
-            }
-
-            25% {
-                left: calc(100% - 5px);
-                top: calc(100% - 5px);
-            }
-
-            50% {
-                left: 0px;
-                top: calc(100% - 5px);
-            }
-
-            75% {
-                left: 0px;
-                top: 0px;
-            }
-
-            100% {
-                left: calc(100% - 5px);
-                top: 0px;
-            }
-        }
-
-        @keyframes moveround3 {
-            0% {
-                left: calc(100% - 5px);
-                top: calc(100% - 5px);
-            }
-
-            25% {
-                left: 0px;
-                top: calc(100% - 5px);
-            }
-
-            50% {
-                left: 0px;
-                top: 0px;
-            }
-
-            75% {
-                left: calc(100% - 5px);
-                top: 0px;
-            }
-
-            100% {
-                left: calc(100% - 5px);
-                top: calc(100% - 5px);
-            }
-        }
-
-        @keyframes moveround4 {
-            0% {
-                left: 0px;
-                top: calc(100% - 5px);
-            }
-
-            25% {
-                left: 0px;
-                top: 0px;
-            }
-
-            50% {
-                left: calc(100% - 5px);
-                top: 0px;
-            }
-
-            75% {
-                left: calc(100% - 5px);
-                top: calc(100% - 5px);
-            }
-
-            100% {
-                left: 0px;
-                top: calc(100% - 5px);
+            100%{
+                transform: translate(0,0);
             }
         }
 
         @keyframes textZoomInOut {
-            0% {
-                font-size: 10px;
+            from{
+                transform: scale(0.8) rotateY(0deg);
             }
-
-            25% {
-                font-size: 17px;
-            }
-
-            50% {
-                font-size: 10px;
-            }
-
-            75% {
-                font-size: 17px;
-            }
-
-            100% {
-                font-size: 10px;
+            to{
+                transform: scale(1.3) rotateY(360deg);
             }
         }
     </style>
@@ -187,10 +81,11 @@
 <body>
 <div class="loader">
     <span class="loader_text">LOADING</span>
-    <div class="loader_round round1"></div>
-    <div class="loader_round round2"></div>
-    <div class="loader_round round3"></div>
-    <div class="loader_round round4"></div>
+    <div class="loader_round"></div>
+    <div class="loader_round"></div>
+    <div class="loader_round"></div>
+    <div class="loader_round"></div>
+    <div class="loader_cicle"></div>
 </div>
 </body>
 </html>
