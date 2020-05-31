@@ -1,5 +1,6 @@
 function createCounter() {
-    // Реализуйте функцию, чтобы программа вывела на консоль ожидаемый результат
+    let number = 1;
+    return () => number++;
 }
 
 const count = createCounter();

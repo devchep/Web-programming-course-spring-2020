@@ -13,7 +13,17 @@ const object3 = {
 	weight: 20,
 };
 
-// Реализуйте функцию isEquivalent
+function isEquivalent(obj1, obj2) {
+	if (obj1 === obj2) {
+		return true;
+	}
+	for (let property in obj1) {
+		if (obj1[property] !== obj2[property]) {
+			return false;
+		}
+	}
+	return true;
+}
 
 console.log(isEquivalent(object1, object2)); // true
 console.log(isEquivalent(object1, object3)); // false
